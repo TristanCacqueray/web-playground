@@ -11,13 +11,24 @@ module HaskellWeb
   )
 where
 
+import Data.Text.Lazy (fromStrict)
+import HaskellWeb.Auth as Auth
 import HaskellWeb.Types
+import Network.HTTP.Types.Status (status404)
 import Web.Scotty
 
 fakeInfo :: Info
 fakeInfo = Info [Link "gerrit" "/r", Link "etherpad" "/etherpad"]
 
-run :: IO ()
-run = scotty 3000 $ do
+runScotty :: Signer -> IO ()
+runScotty signer = scotty 3000 $ do
   get "/api/info" $ do
     json fakeInfo
+  post "/api/auth" $ do
+    auth <- jsonData
+    case checkAuth signer (User (login auth)) (Password (password auth)) of
+      Just token -> text (fromStrict token)
+      Nothing -> status status404
+
+run :: IO ()
+run = Auth.createSigner >>= runScotty
