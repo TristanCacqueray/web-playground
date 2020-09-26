@@ -1,7 +1,6 @@
 module Main (main) where
 
-import HaskellWeb (someFunc)
-
+import HaskellWeb (run)
 
 main :: IO ()
-main = someFunc
+main = run
