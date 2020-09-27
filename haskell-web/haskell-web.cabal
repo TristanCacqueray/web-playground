@@ -15,6 +15,7 @@ common common-options
                      , jwt
                      , scotty
                      , text
+                     , wai-cors
 
   ghc-options:         -Wall
                        -Wcompat

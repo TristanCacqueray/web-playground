@@ -15,6 +15,7 @@ import Data.Text.Lazy (fromStrict)
 import HaskellWeb.Auth as Auth
 import HaskellWeb.Types
 import Network.HTTP.Types.Status (status404)
+import Network.Wai.Middleware.Cors (simpleCors)
 import Web.Scotty
 
 fakeInfo :: Info
@@ -22,6 +23,7 @@ fakeInfo = Info [Link "gerrit" "/r", Link "etherpad" "/etherpad"]
 
 runScotty :: Signer -> IO ()
 runScotty signer = scotty 3000 $ do
+  middleware simpleCors
   get "/api/info" $ do
     json fakeInfo
   post "/api/auth" $ do
