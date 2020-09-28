@@ -27,7 +27,7 @@ let makeContainer = text => {
   content;
 };
 
-// All 4 examples.
+// The app
 ReactDOMRe.render(
   <BlinkingGreeting>
     {React.string("Hello!")}
@@ -36,6 +36,6 @@ ReactDOMRe.render(
 );
 
 ReactDOMRe.render(
-  <ReducerFromReactJSDocs />,
-  makeContainer("Reducer From ReactJS Docs"),
+  <Counter />,
+  makeContainer("Counter From ReactJS Reducer Docs"),
 );
