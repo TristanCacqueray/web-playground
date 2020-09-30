@@ -9,33 +9,7 @@ let style = document##createElement("style");
 document##head##appendChild(style);
 style##innerHTML #= Style.style;
 
-let makeContainer = text => {
-  let container = document##createElement("div");
-  container##className #= "container";
-
-  let title = document##createElement("div");
-  title##className #= "containerTitle";
-  title##innerText #= text;
-
-  let content = document##createElement("div");
-  content##className #= "containerContent";
-
-  let () = container##appendChild(title);
-  let () = container##appendChild(content);
-  let () = document##body##appendChild(container);
-
-  content;
+switch (ReactDOM.querySelector("#root")) {
+| Some(root) => ReactDOM.render(<App />, root)
+| None => ()
 };
-
-// The app
-ReactDOMRe.render(
-  <BlinkingGreeting>
-    {React.string("Hello!")}
-  </BlinkingGreeting>,
-  makeContainer("Blinking Greeting"),
-);
-
-ReactDOMRe.render(
-  <Counter />,
-  makeContainer("Counter From ReactJS Reducer Docs"),
-);
