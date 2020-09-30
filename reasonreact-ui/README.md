@@ -11,7 +11,7 @@ npm start
 Bundle with:
 
 ```
-npm install webpack webpack-cli
+npm install --no-save webpack webpack-cli
 ./node_modules/.bin/webpack
 open indexProduction.html
 ```

@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@glennsl/bs-json": "^5.0.2",
+    "@patternfly/react-core": "^4.50.2",
     "bs-fetch": "^0.6.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
