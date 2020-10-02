@@ -2,11 +2,8 @@
   "name": "reasonreact-ui",
   "version": "0.1.0",
   "scripts": {
-    "build": "bsb -make-world",
-    "start": "bsb -make-world -w -ws _ ",
-    "clean": "bsb -clean-world",
-    "server": "moduleserve ./ --port 8000",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"bsb -make-world -w\" \"parcel serve ./src/index.html\"",
+    "build": "parcel build ./src/index.html --public-url /"
   },
   "keywords": [
     "BuckleScript",
@@ -19,12 +16,16 @@
     "@glennsl/bs-json": "^5.0.2",
     "@patternfly/react-core": "^4.50.2",
     "bs-fetch": "^0.6.2",
+    "concurrently": "^5.3.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "reason-react": ">=0.7.1"
   },
   "devDependencies": {
+    "parcel": "^1.12.4",
+    "isomorphic-fetch": "^3.0.0",
     "bs-platform": "^8.2.0",
+    "bsb-js": "^1.1.7",
     "moduleserve": "^0.9.0"
   }
 }

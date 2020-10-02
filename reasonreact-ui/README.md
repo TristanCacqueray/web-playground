@@ -3,17 +3,15 @@
 Run with:
 
 ```
-npm install
-npm run server &
 npm start
+# Open browser on http://localhost:1234
 ```
 
-Bundle with:
+Build with:
 
 ```
-npm install --no-save webpack webpack-cli
-./node_modules/.bin/webpack
-open indexProduction.html
+npm run build
+# Open browser in dist/
 ```
 
 Run cli with:
