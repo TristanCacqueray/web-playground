@@ -1,0 +1,9 @@
+.merlin
+.bsb.lock
+/lib/
+/node_modules/
+/package-lock.json
+/src/*.bs.js
+/src/*/*.bs.js
+/.cache/
+/dist/
